@@ -32,16 +32,13 @@ module.exports = {
                     {$pull: {username: req.params.username }},
                     {new: true })
         )
-        .then((thought) =>
-            !thought
-                ? res.status(404).json({ message: 'User removed. No thoughts to remove.'})
-                : res.json({message: 'user and thoughts removed'})
+        .then((thought) => res.json({ message: 'User removed. No thoughts to remove.'})
         )
         .catch((err) => res.status(500).json(err));
     },
     updateUser(req,res) {
         User.findOneAndUpdate(
-            { _id: rq.params.userId},
+            { _id: req.params.userId},
             {$set: req.body },
             {new: true}
         )

@@ -6,7 +6,7 @@ const { getAllThoughts, getThoughtsById, createThought, updateThought, deleteTho
 router.route('/').get(getAllThoughts).post(createThought);
 
 //  --/api/thought/:id
-router.route('/:thoughtId').get(getThoughtsById).post(updateThought).delete(deleteThought);
+router.route('/:thoughtId').get(getThoughtsById).put(updateThought).delete(deleteThought);
 
 
 //  --/api/thought/thoughtId/reactions
